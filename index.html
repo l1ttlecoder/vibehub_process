@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qanday qilib AI daromadimni 2x oshirdi - To'liq Jarayon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #040c18;
+            --primary-accent: #00f2ea;
+            --text-color: #FFFFFF;
+            --text-secondary: #bdc3c7;
+            --card-bg: #0d1729;
+            --border-color: rgba(0, 242, 234, 0.2);
+            --success-color: #2ecc71;
+            --danger-color: #ff4d4d;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            background-image: 
+                radial-gradient(circle at 15% 25%, rgba(0, 242, 234, 0.05), transparent 40%),
+                radial-gradient(circle at 85% 75%, rgba(0, 242, 234, 0.05), transparent 40%);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2, h3, h4 {
+            font-weight: 800;
+            line-height: 1.3;
+            color: var(--text-color);
+        }
+        .highlight { color: var(--primary-accent); }
+        
+        section { padding: 100px 0; position: relative; }
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero h1 { font-size: clamp(2.8rem, 8vw, 5rem); }
+        .hero .dollar-icon { font-size: clamp(5rem, 15vw, 10rem); color: var(--primary-accent); text-shadow: 0 0 30px var(--primary-accent); margin-top: 20px; }
+
+        .section-title { text-align: center; font-size: clamp(2.2rem, 6vw, 3.5rem); margin-bottom: 20px; }
+        .section-subtitle { text-align: center; max-width: 700px; margin: 0 auto 60px; color: var(--text-secondary); }
+        
+        .card { background: var(--card-bg); padding: 40px; border-radius: 12px; border: 1px solid var(--border-color); }
+
+        #before .card h3 { font-size: 1.8rem; margin-bottom: 20px; }
+        #before .card p { font-size: 1.1rem; color: var(--text-secondary); }
+        #before .card .result { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--border-color); }
+        #before .card .result span { font-weight: 700; color: var(--danger-color); }
+
+        .step { margin-bottom: 80px; }
+        .step h3 { font-size: 2.5rem; margin-bottom: 15px; }
+        .step p { color: var(--text-secondary); margin-bottom: 20px; }
+        .step .sub-card { background: #08101f; padding: 25px; border-radius: 8px; border-left: 3px solid var(--primary-accent); margin-top: 20px; }
+        .step .sub-card h4 { font-size: 1.4rem; color: var(--primary-accent); margin-bottom: 10px; }
+        .step .sub-card p { margin-bottom: 0; }
+        
+        .prompt-example { background: #000; padding: 15px; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #a5b4fc; white-space: pre-wrap; word-wrap: break-word; }
+        .prompt-example strong { color: #ffca80; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+        .stat-card { background-color: var(--card-bg); padding: 40px 20px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .stat-card .stat-title { font-size: 1.2rem; color: var(--text-secondary); }
+        .stat-card .stat-value { font-size: 3.5rem; font-weight: 800; color: var(--primary-accent); line-height: 1.2; }
+
+        .final-cta { text-align: center; }
+        .final-cta h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+        .final-cta p { max-width: 600px; margin: 20px auto 40px; color: var(--text-secondary); }
+        .cta-button { background: var(--primary-accent); color: #000; padding: 18px 45px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: transform 0.3s ease, box-shadow 0.3s ease; display: inline-block; }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 0 25px var(--primary-accent); }
+        
+        footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #7f8c8d; }
+
+        @media (max-width: 768px) {
+             .hero h1 { font-size: 2.5rem; }
+             .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <h1>Qanday qilib <span class="highlight">AI</span> 1 oylik daromadimni <span class="highlight">2x</span> oshirdi</h1>
+                <div class="dollar-icon">$</div>
+            </div>
+        </section>
+
+        <section id="before">
+            <div class="container">
+                <div class="card">
+                    <h3>OLDIN: "Frilanser G'ildiragi" Tuzog'i</h3>
+                    <p>Har bir frilanser bu holatni biladi: siz doim vaqt bilan kurashasiz. Bir oyda faqat 1ta loyiha qilishga ulgurardim. Chunki hamma ishni o'zim qo'lda bajarardim: noldan kod yozish, mijozga mos dizayn qilish, reklama matnlarini tayyorlash...</p>
+                    <p>Bu "g'ildirak"da yugurishga o'xshaydi. Kod yozishga ketgan vaqt — yangi mijoz qidirishga yetishmaydigan vaqt degani. Ish ko'p, lekin o'sish deyarli yo'q.</p>
+                    <div class="result">
+                        <p><strong>NATIJA:</strong> <span>Vaqt ko'p ketar, daromad esa cheklangan bo'lardi.</span> Mening daromadim to'g'ridan-to'g'ri ishlagan soatlarimga bog'liq edi va bu o'sishimga imkon bermasdi.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="process">
+            <div class="container">
+                <h2 class="section-title">Mening 3 Qadamli <span class="highlight">Transformatsiyam</span></h2>
+                <p class="section-subtitle">Men shunchaki ko'proq ishlamadim. Men aqlliroq ishlashni boshladim. Buning uchun 3ta muhim qadamni bosib o'tdim.</p>
+
+                <div class="step">
+                    <h3><span class="highlight">01.</span> Poydevor: AI "Qurol" Sifatida</h3>
+                    <p>Birinchi navbatda, AI'ga shunchaki "yordamchi" deb qarashni to'xtatdim. Men uni o'z sohamdagi eng kuchli "instrument" (qurol) sifatida ko'rishni boshladim va uni chuqur o'rganishga vaqt ajratdim.</p>
+                    <div class="sub-card">
+                        <h4>Prompt Engineering San'ati</h4>
+                        <p>Bu — AI bilan to'g'ri muloqot qilish tili. Ajoyib natija olish uchun unga to'g'ri savol berish kerak.</p>
+                        <p><strong>Yomon prompt:</strong> "Sayt yasab ber."</p>
+                        <p><strong>Yaxshi prompt:</strong> "Qahvaxona uchun zamonaviy landing page yarating. Qora-jigarrang temada bo'lsin. Asosiy, Biz haqimizda, Menyu va Kontakt bo'limlari uchun HTML va CSS kodini yozib ber."</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <h3><span class="highlight">02.</span> Tizim: Ishni To'liq Avtomatlashtirish</h3>
+                    <p>AI'ni tushungach, har kungi eng ko'p vaqtimni oladigan ishlarni birma-bir avtomatlashtirdim.</p>
+                    <div class="sub-card">
+                        <h4>Nimalar Avtomatlashdi?</h4>
+                        <ul>
+                            <li><strong>Kod yozish:</strong> GitHub Copilot yordamida kodni 50% tezroq yozish, ChatGPT'dan tayyor funksiyalar va API endpoint'larni olish.</li>
+                            <li><strong>Dokumentatsiya:</strong> Kodim uchun tushuntirishlar (DocStrings) va professional README fayllarini AI bir necha daqiqada yaratib beradi.</li>
+                            <li><strong>Dizayn:</strong> Midjourney orqali loyiha uchun vizual konsepsiyalar va moodboard'lar yaratish. Oddiy komponentlar uchun CSS kodini AI'dan so'rash.</li>
+                            <li><strong>Marketing:</strong> Reklama matnlari, ijtimoiy tarmoqlar uchun postlar va mijozlarga yoziladigan xatlarni AI yordamida tayyorlash.</li>
+                        </ul>
+                    </div>
+                    <p style="font-size: 1.2rem; font-weight: 700; text-align: center; margin-top: 30px;">→ Natija: Bu menga haftasiga <span class="highlight">10-15 soat</span> vaqt tejashga yordam berdi.</p>
+                </div>
+
+                <div class="step">
+                    <h3><span class="highlight">03.</span> O'sish: Vaqtni To'g'ri Investitsiya Qilish</h3>
+                    <p>Tejalgan vaqt — bu yangi imkoniyatlar. Men bu vaqtni shunchaki dam olishga emas, o'sishga sarfladim:</p>
+                    <div class="sub-card">
+                        <h4>Strategik Harakatlar:</h4>
+                        <ul>
+                            <li><strong>Ko'proq loyihalar:</strong> Avvallari bir vaqtda faqat bitta loyiha bilan cheklangan bo'lsam, endi bemalol 2-3ta loyihani birga olib ketyapman.</li>
+                            <li><strong>Mijozlar bilan ishlash:</strong> Mijozlar bilan muloqot qilishga, ularning ehtiyojlarini chuqurroq tushunishga va qo'shimcha xizmatlar taklif qilishga ko'proq vaqtim bor.</li>
+                            <li><strong>Shaxsiy Brending:</strong> O'z bilimlarimni bo'lishish orqali ijtimoiy tarmoqlarda kontent yaratishni boshladim. Bu menga qimmatroq loyihalarni jalb qilishga yordam berdi.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="after">
+            <div class="container">
+                <h2 class="section-title"><span class="highlight">YAKUNIY NATIJA</span></h2>
+                <p class="section-subtitle">Bu shunchaki raqamlar emas. Bu — stressdan xalos bo'lish, o'zingizga ishonchning ortishi va o'z ishingizni to'liq nazorat qila olish degani.</p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Loyiha Bajarish</div>
+                        <div class="stat-value">1 oyda 1 ➡️ 3+</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Oylik Daromad</div>
+                        <div class="stat-value">1X ➡️ 2X</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-cta" id="cta">
+            <div class="container">
+                <h2>Bu Jarayonni O'zingiz Uchun <span class="highlight">Qo'llashga Tayyormisiz?</span></h2>
+                <p>AI'dan foydalanish bo'yicha amaliy qadamlar va eng yaxshi promptlar jamlangan BEPUL cheklistni qo'lga kiritib, o'z jarayoningizni bugundan boshlang.</p>
+                <a href="https://t.me/vibehub_uz_bot" target="_blank" class="cta-button">Checklistni Bepul Olish</a>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 VibeHub. Samaradorlik va Natija uchun.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
